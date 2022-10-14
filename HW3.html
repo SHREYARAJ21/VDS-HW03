@@ -47,16 +47,8 @@
 		<a href="scene.html">HW03</a>&emsp;
 		</p>
 	
-			
-	    <div class="flex">
-        <script type="module" src="scene.js"></script>
-        <script type="module" src="particleSystems.js"></script>
-		<canvas class="scene"></canvas>
-			<svg class="childFlex" id = "chart" height = 600 width = 600>
-			</svg>
-		</div>
 		<div>
-			<svg id = "scale" height = 500 width = 500></svg>
+			<svg id = "scale" height = 100 width = 500></svg>
 		</div>
 		<div>
 			<form>
@@ -70,25 +62,18 @@
 			  
 				<button id="Button">Submit to View Plane</button>
 			
-			<script type="text/JavaScript">
-					
-				const subButton = document.getElementById('sub');
-const addButton = document.getElementById('add');
-const inpF = document.getElementById('z_inp');
-
-subButton.addEventListener('click', event => {
-event.preventDefault();
-const currVal = Number(inpF.value) ;
-inpF.value = currVal - 1;
-});
-
-addButton.addEventListener('click', event => {
-event.preventDefault();
-const currVal = Number(inpF.value);
-inpF.value = currVal + 1;
-});
-			</script>
+			
 		</div>
+	    <div class="flex">
+        <script type="module" src="scene.js"></script>
+        <script type="module" src="particleSystems.js"></script>
+		<svg class="childFlex" id = "chart" height = 600 width = 600>
+		</svg>
+		<canvas class="scene"></canvas>
+			
+		</div>
+		
+		
 
 <h2>Credits</h2>
 <p>
@@ -113,7 +98,24 @@ Three js: Three.js is a cross-browser JavaScript library and application program
 	Color schemes : <a href="https://observablehq.com/@d3/color-schemes"> color scheme for data points</a> </br>
 	Particles : <a href="https://threejs.org/examples/#webgl_buffergeometry_custom_attributes_particles">particles</a>
 </p>
-		
+<script type="text/JavaScript">
+					
+	const subButton = document.getElementById('sub');
+const addButton = document.getElementById('add');
+const inpF = document.getElementById('z_inp');
+
+subButton.addEventListener('click', event => {
+event.preventDefault();
+const currVal = Number(inpF.value) ;
+inpF.value = currVal - 1;
+});
+
+addButton.addEventListener('click', event => {
+event.preventDefault();
+const currVal = Number(inpF.value);
+inpF.value = currVal + 1;
+});
+</script>
 
 	</body>
 </html>
