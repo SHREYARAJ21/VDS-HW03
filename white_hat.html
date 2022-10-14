@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <h2>DISTRIBUTION OF GUN VIOLENCE IN UNITED STATES </h2>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <style>
+        body{
+    background-color: rgb(38, 37, 37);
+    color: wheat;
+}
+            #navigation {
+                background-color: #454545;
+                height:30px;
+                font-size: 30px;
+                
+            }
+            h2 {
+                text-align: center;
+                background-color: rgb(38, 37, 37);
+                color:white;
+                font-size: 50px;
+                }
+                
+        img {
+          margin-left: auto;
+          margin-right: auto;
+          padding-left: 50px;
+          width: 250px;
+            height: 200px;
+        }
+a {
+            color: white;
+            text-decoration: none;
+
+                }
+
+        </style>
+    </style>
+</head>
+<body>
+    <p id="navigation" align="right">
+        <a href="HW0.html">About Me</a>&emsp;
+        <a href="visualization.html">Visualization</a>&emsp;
+    <a href="credits.html">Credits</a>&emsp;
+    <a href="svg.html">SVG CANVAS</a>&emsp;
+    <a href="hw02.html">BLACK HAT</a>&emsp;
+    <a href="white_hat.html">WHITE HAT</a>&emsp;
+    </p>
+    <div class="container full-height">
+        <section id="viz">
+        <div class="row center-items margin-top">
+            <div class="col-12 full-width center-container">
+                <div id="tooltip-container"></div>
+                <div class="viz full-width center-container"></div>
+            </div>
+        </div>
+        
+        </section>
+
+        <div class="row center-items full-height margin-top">
+            <div class="col-12 full-width center-container full-height margin-left">
+                <p class="font_5">The map above shows the number of deaths due to guns in the violence.</p>
+                The darker color indicates more death and the lighter colors indicate more death.<br />
+                California has the most number of deaths followed by Texas. FLorida and Chicago come 3rd and 4th respectively.
+            </div>
+        </div>
+
+        <section id="credits">
+        <div class="row center-items full-height">
+            <div class="col-12 full-width center-container full-height margin-left">
+                <h3 class="font_0">Credits: </h3>
+                <p class="font_5">This visualization was a project for <a href="https://www.evl.uic.edu/cs594/" target="_blank">CS 594 Visual Data Science</a>, made using
+                    HTML, CSS, JQuery and D3.js. I claim no ownership or credits for the libraries used in this project and convey my sincere gratitude to the
+                developers, original content creators, and the data aggregators.</p>
+                <ul class="font_5 margin-left">
+                    <li>Project: <a href="https://d3js.org/" target="_blank">D3.js</a><br/>License: BSD</li>
+                    <li>Project: <a href="https://github.com/topojson/topojson" target="_blank">Topojson</a></li>
+                    <li><a href="https://bost.ocks.org/mike/" target="_blank">Mike Bostock</a>'s <a href="https://bl.ocks.org/mbostock" target="_blank">bl.ocks</a></li>
+                    <li>Project: <a href="https://code.jquery.com/" target="_blank">jQuery</a><br/>License: MIT and jQuery License</li>
+                    <li>Project: <a href="http://getbootstrap.com" target="_blank">Bootstrap</a><br/>License: MIT and docs released under Creative Commons</li>
+                    <li>Data from <a href="http://www.slate.com/articles/news_and_politics/crime/2012/12/gun_death_tally_every_american_gun_death_since_newtown_sandy_hook_shooting.html" target="_blank">Slate</a></li>
+                </ul>
+            </div>
+        </div>
+        </section>
+    </div>
+    <div class=""></div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
+    <script type="text/javascript" src="hw02.js"></script>
+</body>
+</html>

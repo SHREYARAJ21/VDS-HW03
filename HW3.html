@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>        
+		<head>
+			
+			<code><script src="https://d3js.org/d3.v7.min.js"></script></code>
+			<script type="module" src="three.module.js"></script>
+			<style>
+				body{
+			background-color: rgb(38, 37, 37);
+			color: wheat;
+		}
+					#navigation {
+						background-color: #454545;
+						height:50px;
+						font-size: 30px;
+						
+					}
+					h2 {
+						text-align: center;
+						background-color: rgb(38, 37, 37);
+						color:wheat;
+						font-size: 50px;
+						}
+						
+				
+		a {
+					color: white;
+					text-decoration: none;
+		
+						}
+		
+				</style>
+		</head>
+		<link href="style.css" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Archivo:500|Open+Sans:300,700" rel="stylesheet">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>
+	</head>
+	<body>
+		<h2>Home Work 3: Fluid Flow</h2>
+		<p id="navigation" align="right">
+			<a href="HW0.html">About Me</a>&emsp;
+			<a href="visualization.html">Visualization</a>&emsp;
+		<a href="credits.html">Credits</a>&emsp;
+		<a href="svg.html">SVG CANVAS</a>&emsp;
+		<a href="hw02.html">BLACK HAT</a>&emsp;
+		<a href="white_hat.html">WHITE HAT</a>&emsp;
+		<a href="scene.html">HW03</a>&emsp;
+		</p>
+	
+			
+	    <div class="flex">
+        <script type="module" src="scene.js"></script>
+        <script type="module" src="particleSystems.js"></script>
+		<canvas class="scene"></canvas>
+			<svg class="childFlex" id = "chart" height = 600 width = 600>
+			</svg>
+		</div>
+		<div>
+			<svg id = "scale" height = 500 width = 500></svg>
+		</div>
+		<div>
+			<form>
+				<label style = "color:white;" for="z_val">Move Plane between 0 to 10(This changes Z value):</label><br>
+				<input type="text" id="z_inp" name="z_val" value="1">
+				<button id="sub" onclick="dec_Val();">Subtract</button>
+				
+				<button id="add">Add</button>
+				
+			  </form>
+			  
+				<button id="Button">Submit to View Plane</button>
+			
+			<script type="text/JavaScript">
+					
+				const subButton = document.getElementById('sub');
+const addButton = document.getElementById('add');
+const inpF = document.getElementById('z_inp');
+
+subButton.addEventListener('click', event => {
+event.preventDefault();
+const currVal = Number(inpF.value) ;
+inpF.value = currVal - 1;
+});
+
+addButton.addEventListener('click', event => {
+event.preventDefault();
+const currVal = Number(inpF.value);
+inpF.value = currVal + 1;
+});
+			</script>
+		</div>
+
+<h2>Credits</h2>
+<p>
+Three js: Three.js is a cross-browser JavaScript library and application programming interface used to create and display animated 3D computer graphics in a web browser using WebGL.
+<a href="https://threejs.org/">The documentation can be found here</a> </br>
+ HTML : The HyperText Markup Language or HTML is the standard markup language for documents designed to be displayed in a web browser. 
+ <a href="https://www.w3.org/2011/03/html-license-options.html">The License can be found here</a> </br>
+ CSS: Cascading Style Sheets is a style sheet language used for describing the presentation of a document written in a markup language such as HTML or XML.
+ <a href="https://github.com/primer/css/blob/main/LICENSE">The License can be found here</a> </br>
+ JAVASCRIPT: JavaScript, often abbreviated as JS, is a programming language that is one of the core technologies of the World Wide Web, alongside HTML and CSS.
+ <a href="https://www.gnu.org/licenses/javascript-labels.en.html">The License can be found here</a> </br>
+ D3.js: D3.js is a JavaScript library for producing dynamic, interactive data visualizations in web browsers.
+ <a href="https://github.com/d3/d3/blob/main/LICENSE">The License can be found here</a> </br>
+ Orbit Control: Used to rotate the 3D Visualization<a href="https://threejs.org/docs/#examples/en/controls/OrbitControls"> code</a>
+</p>
+<h2>Additional Resources</h2>
+<p>
+	I also used additional tutorials from the following sites - 
+	Youtube: <a href="https://www.youtube.com/results?search_query=points+in+three.js">video</a></br>
+	Stackoverflow:<a href="https://stackoverflow.com/questions/61510144/turning-an-image-into-point-cloud-in-three-js">Convert data from CSV to point cloud</a>  </br>
+	three.js sample example codes: <a href="https://github.com/mrdoob/three.js/">repository</a></br>
+	Color schemes : <a href="https://observablehq.com/@d3/color-schemes"> color scheme for data points</a> </br>
+	Particles : <a href="https://threejs.org/examples/#webgl_buffergeometry_custom_attributes_particles">particles</a>
+</p>
+		
+
+	</body>
+</html>
