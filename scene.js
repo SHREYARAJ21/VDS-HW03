@@ -10,7 +10,7 @@ const scene = new THREE.Scene();
 
 const sizes = {
     width: window.innerWidth * 0.45,
-    height: window.innerHeight * 0.8
+    height: window.innerHeight * 0.5
 };
 
 
