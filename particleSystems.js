@@ -51,42 +51,7 @@ self.createParticleSystem = function (data) {
 }
 
 
-self.colorCylinder = function(z_val){
 
-    const myColor = d3.scaleSequential().interpolator(d3.interpolateSinebow).domain([0,50])
-    const bwScale = d3.scaleSequential(d3.interpolateGreys).domain([0, 30])
-    const pcolors = points.geometry.attributes.color.array;
-    points.geometry.attributes.color.needsUpdate = true
-    var index = 0
-    var newColors = []
-        for (let i = 0; i < data.length; i++) {
-            if (data[i].Z <= z_val + 0.1 && data[i].Z >= z_val - 0.1){
-                var newColor = new THREE.Color(myColor(data[i].concentration))
-                newColors.push(newColor.r)
-                newColors.push(newColor.g)
-                newColors.push(newColor.b)
-               
-
-            }
-                
-            else{
-                var newColor1 = new THREE.Color(bwScale(data[i].concentration))
-                newColors.push(newColor1.r)
-                newColors.push(newColor1.g)
-                newColors.push(newColor1.b)
-              
-            }
-                
-        }
-        
-        var pobject = scene.getObjectByName( "points" );
-       scene.remove(pobject)
-        geometry.setAttribute('color',new THREE.BufferAttribute(new Float32Array(newColors),3));
-       points = new THREE.Points( geometry, pointMaterial );
-    scene.add(points)
-
-    
-}
 
 
 self.createPlane = function(z_val){
