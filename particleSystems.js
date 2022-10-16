@@ -6,7 +6,7 @@ import { animate } from '/scene.js';
 const data = [];
 let points;
 let geometry;
-let pointMaterial;
+let point_for_Material;
 
 const bounds = {};
 
@@ -14,35 +14,35 @@ const bounds = {};
 
 
 self.createParticleSystem = function (data) {
-    const vertices = [];
+    const vertix = [];
     const colors = []
-    const myColor = d3.scaleSequential().interpolator(d3.interpolateSinebow).domain([0,50])
+    const this_color = d3.scaleSequential().interpolator(d3.interpolateSinebow).domain([0,50])
 
     data.forEach((data =>{
 
-        vertices.push( data.X, data.Z, data.Y );
-        let particleColor = new THREE.Color(myColor(data.concentration))
-        colors.push(particleColor.r,particleColor.g, particleColor.b)
+        vertix.push( data.X, data.Z, data.Y );
+        let particle_Color = new THREE.Color(this_color(data.concentration))
+        colors.push(particle_Color.r,particle_Color.g, particle_Color.b)
 
     })) 
 
 
-    const disc = new THREE.TextureLoader().load('disc.png')
+    const disc_shape = new THREE.TextureLoader().load('disc.png')
 
 
-    pointMaterial = new THREE.PointsMaterial({
+    point_for_Material = new THREE.PointsMaterial({
         vertexColors: true,
         blending: THREE.AdditiveBlending,
-        map: disc,
+        map: disc_shape,
         transparent: true,
         size: 0.1,
     })
    
     geometry = new THREE.BufferGeometry();
-    geometry.setAttribute( 'position', new THREE.Float32BufferAttribute( vertices, 3 ) );
+    geometry.setAttribute( 'position', new THREE.Float32BufferAttribute( vertix, 3 ) );
     geometry.setAttribute('color',new THREE.BufferAttribute(new Float32Array(colors),3));
     
-    points = new THREE.Points( geometry, pointMaterial );
+    points = new THREE.Points( geometry, point_for_Material );
     points.name = "points";
     console.log(geometry)
     scene.add( points );
@@ -54,7 +54,7 @@ self.createParticleSystem = function (data) {
 
 
 
-self.createPlane = function(z_val){
+self.plane = function(z_val){
     const width = bounds.maxX - bounds.minX + 2
     const height = bounds.maxZ - bounds.minZ + 2
     const material = new THREE.MeshBasicMaterial({
@@ -90,7 +90,7 @@ self.scatterPlot = function (z_val) {
     let xAxis = d3.scaleLinear().domain(xExtent).range([0, 565])
     let yAxis = d3.scaleLinear().domain(yExtent).range([0, 565])
 
-    const myColor = d3.scaleSequential().interpolator(d3.interpolateSinebow).domain([0,50])
+    const this_color = d3.scaleSequential().interpolator(d3.interpolateSinebow).domain([0,50])
 
     d3.selectAll('circle').remove()
     let svg_const = d3.select("#chart")
@@ -107,7 +107,7 @@ self.scatterPlot = function (z_val) {
    })
   .attr("r",2)
   .attr("fill",(d) => {
-    return myColor(d.concentration)
+    return this_color(d.concentration)
   });
 }
 
@@ -147,29 +147,23 @@ self.loadData = async function (file) {
     console.log(d3.extent(data.map((d) => d.concentration)))
     createParticleSystem(data)
     self.scatterPlot(1)
-    self.createPlane(1)
+    self.plane(1)
      
 
     Button.onclick = function () {
-        const options = document.querySelectorAll('input[name="z_val"]')
-        const text1 = parseInt(options[0].value)
-        self.scatterPlot(text1)
-        self.createPlane(text1)
+        const inps = document.querySelectorAll('input[name="z_val"]')
+        const inps_text = parseInt(inps[0].value)
+        self.scatterPlot(inps_text)
+        self.plane(inps_text)
   
     }
 
 
-    const myColor = d3.scaleSequential().interpolator(d3.interpolateSinebow).domain([0,350])
+    const this_color = d3.scaleSequential().interpolator(d3.interpolateSinebow).domain([0,350])
 
-    Legend(d3.scaleSequential([0, 350], d3.interpolateSinebow), {
-        title: "Color legends for fluid mappings"
-      })
       
 }
 
 
 loadData('058.csv')
 animate()
-
-
-
